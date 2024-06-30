@@ -1,0 +1,37 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh; /* Full height of the viewport */
+    width: 100%; /* Full width */
+    overflow: hidden; /* Prevent overflow issues */
+    margin: 0; /* Remove any default margin */
+    padding: 0; /* Remove any default padding */
+}
+
+.List-card {
+    flex: 1; /* 1/4 of the width */
+    overflow-y: auto; /* Enable scrolling if content overflows */
+    padding: 0; /* Remove padding */
+    max-height: 80vh; /* Max height to match viewport height */
+    box-sizing: border-box; /* Include padding in height calculation */
+    margin: 0; /* Remove any margin */
+}
+
+.map {
+    flex: 3; /* 3/4 of the width */
+    max-height: 100vh; /* Max height to match viewport height */
+    height: 100%;
+    margin: 0; /* Remove any margin */
+    padding: 0; /* Remove padding */
+}
+
+.card-img-top {
+    height: 150px; /* Adjust the height as needed */
+    object-fit: cover;
+}
+
+.card {
+    margin-bottom: 20px; /* Add some space between cards */
+    margin-left: 0; /* Remove left margin */
+    margin-right: 0; /* Remove right margin */
+} 

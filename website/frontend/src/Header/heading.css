@@ -1,0 +1,17 @@
+.header-categories {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header-category a {
+    color: black; /* Đổi màu chữ thành đen */
+    text-decoration: none; /* Loại bỏ gạch chân */
+}
+
+.header-category a:hover {
+    color: blue; /* Đổi màu chữ thành xanh khi hover */
+}
+
+.header-category ul.custom-scroll-list li:hover {
+    color: blue; /* Đổi màu chữ của các lựa chọn trong danh sách thành xanh khi hover */
+}

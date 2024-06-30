@@ -1,0 +1,155 @@
+.detail-property {
+    /* border-bottom: 1px solid silver; */
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.detail-property span {
+    /* opacity: 0.6; */
+    font-weight: bold;
+}
+
+.detail-property h1{
+  font-size: 32px;
+}
+.detail-image img {
+  width: 100%; /* Giới hạn chiều rộng tối đa của ảnh là 100% của phần tử cha */
+  max-height: 400px; /* Giới hạn chiều cao tối đa của ảnh là 400px */
+  height: auto;  /*Đảm bảo chiều cao tự động điều chỉnh theo tỷ lệ chiều rộng */
+}
+
+.detail-des h2 {
+  display: block;
+}
+
+.detail-overall {
+    border-bottom: 1px solid silver;
+    display: flex;
+    justify-content: space-between; /* Căn giữa hai phần tử con và tạo khoảng cách */
+  }
+  
+  .detail-overall > div {
+    flex: 1; /* Phần tử con sẽ chiếm hết không gian có sẵn trong flex container */
+    text-align: center; /* Căn giữa nội dung trong từng khung */
+    padding: 10px; /* Để tăng khoảng cách xung quanh nội dung */
+     /* Đường viền để phân biệt rõ ràng */
+  }
+  .custom-heading {
+    font-size: 28px; /* Đây là ví dụ về kích thước font size */
+}
+  .detail-overall span {
+    display: block; /* Đảm bảo mỗi dòng trong span xuống dòng mới */
+    margin-bottom: 5px; /* Khoảng cách giữa các dòng văn bản */
+    font-weight: bold;
+  }
+  
+  .detail-overall > div:nth-child(2) {
+    margin-left: 5px; /* Tạo khoảng cách giữa hai cột */
+  }
+
+  .detail-des {
+    border-bottom: 1px solid silver;
+    display: flex;
+    text-align: center;
+  }
+
+  .detail-des h2 {
+    text-align: center;
+    width: 100%;
+  }
+
+  .detail-char {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 1rem; /* Khoảng cách trên */
+}
+
+.detail-char h2 {
+    text-align: center;
+    margin-bottom: 1rem; /* Khoảng cách dưới tiêu đề */
+}
+
+.detail-full-des {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tạo 3 cột đều nhau */
+    gap: 0; /* Xóa khoảng cách giữa các ô để viền khớp nhau */
+    border: 1px solid #ddd; /* Viền cho toàn bảng */
+    border-collapse: collapse; /* Đảm bảo viền không bị chồng lên */
+    margin-bottom: 2rem;
+}
+
+.detail-field {
+    display: flex;
+    justify-content: space-between; /* Canh đều hai bên */
+    padding: 0rem; /* Khoảng cách trong mỗi ô */    
+    border: 2px solid #000; /* Viền đậm cho toàn bảng */
+    border-bottom: 1px solid #ddd; /* Viền dưới cho từng ô */
+    min-height: 50px;
+    /* align-items: center; */
+    justify-content: space-between;
+}
+
+.detail-field:nth-last-child(-n+3) {
+  border-bottom: 2px solid #000; /* Viền đậm dưới cho ba ô cuối cùng */
+}
+
+
+.detail-field span:first-child {
+  display: inline-block;
+  width: 50%; /* Chiếm 50% chiều rộng */
+  font-weight: bold; /* Tùy chọn: Đậm nhãn để phân biệt */
+  text-align: left; /* Canh trái giá trị */
+  border-right: 2px solid #ddd; /* Viền bên phải */
+  box-sizing: border-box; /* Đảm bảo viền nằm trong 50% chiều rộng */
+  padding-left: 0.7rem;
+  background-color: #96bee6; /* Nền xanh đậm */
+  justify-content: space-between;
+}
+
+.detail-field span:last-child {    
+    display: inline-block;
+    width: 50%; /* Chiếm 50% chiều rộng */
+    text-align: left; /* Canh trái giá trị */    
+    /* background-color: #dae6f3;  */
+    padding-left: 0.7rem; /* Khoảng cách từ viền */
+}
+
+.detail-field-content {
+  border-left: 2px solid #ddd; /* Viền bên trái */
+  padding-left: 0.7rem; /* Khoảng cách từ viền */
+}
+
+
+  /* .detail-char {
+    border-bottom: 1px solid silver;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+  }
+
+  .detail-char h2 {
+    text-align: center;
+  }
+
+  .detail-char .detail-full-des {
+    display: flex;
+  }
+  
+  .detail-full-des {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .detail-field {
+    flex: 0 1 calc(50% - 10px);
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box; 
+  }
+
+  .detail-field span {
+    display: block;
+  } */

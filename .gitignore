@@ -1,0 +1,4 @@
+*.pyc
+*.cmd
+*.ps1
+/website/frontend/node_modules

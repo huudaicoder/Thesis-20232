@@ -1,0 +1,7 @@
+pandas
+geopy
+requests
+pymysql
+bs4
+selenium
+glob2
