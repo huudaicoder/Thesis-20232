@@ -1,6 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Home from "../containers/Home";
+import SearchForm from "../components/SearchForm";
 import NotFound from "../containers/NotFound";
 import Detail from "../containers/Detail";
 import Listestate from "../components/Listestate";

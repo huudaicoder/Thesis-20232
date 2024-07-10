@@ -17,8 +17,8 @@ class BDS(models.Model):
     kind = models.CharField(max_length=50)
     law = models.CharField(max_length=100)
     bedroom = models.IntegerField()
-    address_id = models.IntegerField()  # Thay vì ForeignKey(Address, on_delete=models.CASCADE)
-    Type_id = models.IntegerField()     # Thay vì ForeignKey(TypeOfBDS, on_delete=models.CASCADE)
+    address_id = models.IntegerField()
+    Type_id = models.IntegerField()     
     description = models.TextField()
     width = models.DecimalField(max_digits=10, decimal_places=2)
     direction = models.CharField(max_length=20)
@@ -29,5 +29,5 @@ class BDS(models.Model):
 
 class Image(models.Model):
     Image_id = models.AutoField(primary_key=True)
-    BDS_id = models.IntegerField()  # Thay vì ForeignKey(BDS, on_delete=models.CASCADE)
+    BDS_id = models.IntegerField()
     content = models.TextField()

@@ -9,7 +9,7 @@ const ListingForm = (props) => {
     const initialFormData = {
         sale_type: "Mua Bán",
         province: "Hà Nội",
-        district: "Tất cả", // Thêm "Tất cả" vào district mặc định
+        district: "Tất cả", 
         home_type: "Tất cả",
         price: "Tất cả",
         area: "Tất cả",
@@ -21,11 +21,11 @@ const ListingForm = (props) => {
 
     const [formData, setFormData] = useState(initialFormData);
     const { sale_type, price, province, home_type, area, district, min_area, max_area, min_price, max_price } = formData;
-    const open_house = "true";
+    
 
     const [loading, setLoading] = useState(false);
     const [provinces, setProvinces] = useState([]);
-    const [districts, setDistricts] = useState(["Tất cả"]); // Khởi tạo với "Tất cả" đầu tiên
+    const [districts, setDistricts] = useState(["Tất cả"]);
     const [priceOptions, setPriceOptions] = useState({
         "Mua Bán": [
             "Tất cả",

@@ -1,81 +1,3 @@
-// import React, { useEffect, useRef, useState } from 'react';
-// import L from 'leaflet';
-// import 'leaflet/dist/leaflet.css';
-// import 'leaflet.heat/dist/leaflet-heat.js';
-// import markerIcon from 'leaflet/dist/images/marker-icon.png';
-// import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
-// import DropdownButton from 'react-bootstrap/DropdownButton';
-// import Dropdown from 'react-bootstrap/Dropdown';
-
-// const MapList = ({ geocode }) => {
-//     const mapRef = useRef(null);
-//     const [heatmapEnabled, setHeatmapEnabled] = useState(false);
-
-//     useEffect(() => {
-//         const heatData = geocode.map(item => [item.lat, item.lng, 0.5]);
-//         const initialCoordinates = heatData.length > 0 ? heatData[0].slice(0, 2) : [10.7769, 106.7009];
-//         const map = L.map(mapRef.current).setView(initialCoordinates, 14);
-
-//         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-//             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-//         }).addTo(map);
-
-//         const customIcon = L.icon({
-//             iconUrl: markerIcon,
-//             iconRetinaUrl: markerIcon2x,
-//             iconSize: [20, 20],
-//             iconAnchor: [10, 20],
-//             popupAnchor: [0, -20]
-//         });
-
-//         geocode.forEach(item => {
-//             const coordinates = [item.lat, item.lng];
-//             L.marker(coordinates, { icon: customIcon }).addTo(map)
-//                 .bindPopup(`<b>${item.title}</b><br>${item.address}<br>Giá: ${item.price} tỷ<br>Diện tích: ${item.area} m2`);
-//         });
-
-//         const heatmapLayer = L.heatLayer(heatData, {
-//             radius: 20,
-//             blur: 15,
-//             maxZoom: 10,
-//             max: 1.5,
-//             gradient: {
-//                 0.0: 'green',
-//                 0.5: 'yellow',
-//                 1.0: 'red'
-//             }
-//         });
-
-//         if (heatmapEnabled) {
-//             heatmapLayer.addTo(map);
-//         }
-
-//         return () => {
-//             map.remove();
-//         };
-//     }, [geocode, heatmapEnabled]);
-
-//     const toggleHeatmap = () => {
-//         setHeatmapEnabled(!heatmapEnabled);
-//     };
-
-//     return (
-//         <div style={{ position: 'relative' }}>
-//             <div ref={mapRef} style={{ height: '400px' }} />
-//             <div style={{ position: 'absolute', top: '80px', left: '7px', zIndex: '1000'}}>
-//                 <DropdownButton id="dropdown-basic-button" title={heatmapEnabled ? 'Heatmap' : 'Map'} variant="primary">
-//                     <Dropdown.Item onClick={toggleHeatmap}>
-//                         {heatmapEnabled ? 'Map' : 'Heatmap'}
-//                     </Dropdown.Item>
-//                 </DropdownButton>
-//             </div>
-//         </div>
-//     );
-// };
-
-// export default MapList;
-
-
 import React, { useEffect, useRef, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import L from 'leaflet';
@@ -104,7 +26,7 @@ const MapList = ({ geocode }) => {
         const customIcon = L.icon({
             iconUrl: markerIcon,
             iconRetinaUrl: markerIcon2x,
-            iconSize: [20, 20],
+            iconSize: [30, 20],
             iconAnchor: [10, 20],
             popupAnchor: [0, -20]
         });

@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import MapList from './MapList';
 import './listestate.css';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const Listestate = () => {
     const location = useLocation();
@@ -29,6 +30,9 @@ const Listestate = () => {
 
     return (
         <div className="container">
+            <Helmet>
+                <title>List estate</title>
+            </Helmet>
             <div className='List-card'>
                 {a.map((listing, index) => (
                     <div key={index} className="card mb-4">

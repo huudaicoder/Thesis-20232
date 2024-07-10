@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { Helmet } from 'react-helmet';
 import { fetchProperties } from '../store/actions/data';
 import './detail.css';
 import Map from '../components/Map'; // Đường dẫn tới component Map
@@ -20,7 +21,7 @@ const Detail = () => {
         return <div className="container text-center mt-5"></div>;
     }
 
-    // Mock geocode data (lat, lng, title, description)
+    
     const geocode = [{
         lat: parseFloat(property.geocode.split(',')[0].slice(1)),
         lng: parseFloat(property.geocode.split(',')[1].slice(0, -1)),
@@ -31,9 +32,14 @@ const Detail = () => {
         kind: property.kind,
         image_link: property.image_link
     }];
+
     console.log(property.width)
+
     return (
         <div className="container-fluid">
+            <Helmet>
+                <title>{property.title}</title>
+            </Helmet>
             <div className="row justify-content-center">
                 <div className="col-lg-8">
                     {/* Các phần tử khác của trang chi tiết */}
@@ -51,7 +57,7 @@ const Detail = () => {
                         <div style={{ flex: '1.2', textAlign: 'left' }}>
                             <span className="text-muted">Diện tích: {property.area} m2</span>
                             <span className="text-muted">
-                                Mức giá: {property.price === 0.00 ? 'Thỏa thuận' : (
+                                Mức giá: {property.price == 0.00 ? 'Thỏa thuận' : (
                                     property.kind === 'Mua Bán' ? `${property.price} tỷ` : `${property.price} triệu/tháng`
                                 )}
                             </span>

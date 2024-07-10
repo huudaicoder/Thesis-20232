@@ -1,22 +1,16 @@
 import React, { useState } from "react";
-import ListingForm from "../components/ListingForm";
-import ListingHome from "../components/ListingHome";
+import SearchForm from "../components/SearchForm";
 import { Helmet } from "react-helmet";
 
 const Home = () => {
     const [listings, setListings] = useState([]);
-
     return (
         <>
             <Helmet>
-                <title>Real Estate - Home</title>
-                <meta name="description" content="sign up page" />
+                <title>Real Estate </title>
             </Helmet>
             <section className="">
-                <ListingForm setListings={setListings} />
-            </section>
-            <section>
-                <ListingHome listings={listings} />
+                <SearchForm setListings={setListings} />
             </section>
         </>
     );

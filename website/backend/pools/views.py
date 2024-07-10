@@ -10,8 +10,6 @@ def get_all_properties(request):
     data = []
 
     for prop in properties:
-        
-        address = Address.objects.get(address_id=prop.address_id)
 
         type = TypeOfBDS.objects.get(Type_Id=prop.Type_id)
         typeBDS = type.TypeName
@@ -44,9 +42,6 @@ def get_all_properties(request):
 def get_property(request, pk):
     try:
         prop = BDS.objects.get(BDS_id=pk)
-        address = Address.objects.get(address_id=prop.address_id)
-        # address_district = address.district
-        # address_province_city = address.province_city
 
         type = TypeOfBDS.objects.get(Type_Id=prop.Type_id)
         typeBDS = type.TypeName
@@ -69,11 +64,8 @@ def get_property(request, pk):
             'description': prop.description,
             'width': str(prop.width) if prop.width is not None else None,
             'geocode': prop.geocode,
-            # 'address_district': address_district,
-            # 'address_province_city': address_province_city,
             'type': typeBDS,
             'image_link': image.content if image else None
-
         }
         return JsonResponse(prop_data)
     except BDS.DoesNotExist:
@@ -170,7 +162,6 @@ def get_properties_with_conditions(request):
     data = []
     for prop in properties:
         image = Image.objects.filter(BDS_id=prop.BDS_id).first()
-        # type = TypeOfBDS.objects.filter(Type_Id=prop.Type_id).first()
         prop_data = {
             'id': prop.BDS_id,
             'title': prop.title,
@@ -249,8 +240,3 @@ def search_properties_by_kind(request):
         data.append(prop_data)
 
     return JsonResponse(data, safe=False)
-
-# def get_property_count_by_city(request):
-#     property_counts = Property.objects.values('address__province_city').annotate(property_count=Count('id'))
-#     result = [{'city': count['address__province_city'], 'property_count': count['property_count']} for count in property_counts]
-#     return JsonResponse({'property_counts': result})
