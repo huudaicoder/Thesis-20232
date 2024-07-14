@@ -31,3 +31,4 @@ class Image(models.Model):
     Image_id = models.AutoField(primary_key=True)
     BDS_id = models.IntegerField()
     content = models.TextField()
+    

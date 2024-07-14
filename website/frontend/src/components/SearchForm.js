@@ -4,6 +4,7 @@ import Loader from "react-loader-spinner";
 import PropTypes from "prop-types";
 import { useHistory } from "react-router-dom";
 
+
 const ListingForm = (props) => {
     const history = useHistory();
     const initialFormData = {
@@ -246,150 +247,144 @@ const ListingForm = (props) => {
     }, [province]);
 
     return (
-        <div className="container" style={{marginTop:70}}>
+        <div className="container" style={{ marginTop: 5 }}>
             <form className="px-1" onSubmit={handleSubmit}>
-                <div className="form-row">
-                    <div className="form-group col-md-3">
-                        <div className="listingform__section">
-                            <label className="listingform__label" htmlFor="sale_type">
-                                Mua - Thuê
-                            </label>
-                            <select
-                                className="form-control"
-                                name="sale_type"
-                                value={sale_type}
-                                onChange={onChange}
-                            >
-                                <option>Mua Bán</option>
-                                <option>Cho Thuê</option>
-                            </select>
+                <div className="form-group" style={{ marginBottom: 8 }}>
+                    <label className="listingform__label" htmlFor="sale_type" style={{fontWeight: 'bold' }}>
+                        Mua - Thuê
+                    </label>
+                    <select
+                        className="form-control"
+                        name="sale_type"
+                        value={sale_type}
+                        onChange={onChange}
+                    >
+                        <option>Mua Bán</option>
+                        <option>Cho Thuê</option>
+                    </select>
+                </div>
+                <div className="form-group" style={{ marginBottom: 8 }}>
+                    <label className="listingform__label" htmlFor="area" style={{fontWeight: 'bold' }}>
+                        Diện Tích
+                    </label>
+                    <select
+                        className="form-control"
+                        name="area"
+                        value={area}
+                        onChange={onChange}
+                    >
+                        <option>Tất cả</option>
+                        <option>Nhỏ hơn 20 m2</option>
+                        <option>20-30 m2</option>
+                        <option>30-50 m2</option>
+                        <option>50-70 m2</option>
+                        <option>70-100 m2</option>
+                        <option>100-150 m2</option>
+                        <option>150-200m2</option>
+                        <option>200-250m2</option>
+                        <option>250-300m2</option>
+                        <option>300-350m2</option>
+                        <option>350-400m2</option>
+                        <option>400-600m2</option>
+                        <option>600-800m2</option>
+                        <option>800-10000m2</option>
+                        <option>Trên 1000m2</option>
+                    </select>
+                </div>
+                <div className="form-group" style={{ marginBottom: 8 }}>
+                    <label className="listingform__label" htmlFor="price" style={{fontWeight: 'bold' }}>
+                        Giá
+                    </label>
+                    <select
+                        className="form-control"
+                        name="price"
+                        value={price}
+                        onChange={onChange}
+                    >
+                        {priceOptions[sale_type].map((option, index) => (
+                            <option key={index}>{option}</option>
+                        ))}
+                    </select>
+                </div>
+                <div className="form-group" style={{ marginBottom: 8 }}>
+                    <label className="listingform__label" htmlFor="province" style={{fontWeight: 'bold' }}>
+                        Tỉnh/Thành
+                    </label>
+                    <select
+                        className="form-control"
+                        name="province"
+                        value={province}
+                        onChange={onChange}
+                    >
+                        {provinces.map((prov, index) => (
+                            <option key={index}>{prov}</option>
+                        ))}
+                    </select>
+                </div>
+                <div className="form-group" style={{ marginBottom: 8 }}>
+                    <label className="listingform__label" htmlFor="district" style={{fontWeight: 'bold' }}>
+                        Quận/Huyện
+                    </label>
+                    <select
+                        className="form-control"
+                        name="district"
+                        value={district}
+                        onChange={onChange}
+                    >
+                        {districts.map((dist, index) => (
+                            <option key={index}>{dist}</option>
+                        ))}
+                    </select>
+                </div>
+                <div className="form-group" style={{ marginBottom: 0.5}}>
+                    <label className="listingform__label" htmlFor="home_type" style={{fontWeight: 'bold' }}>
+                        Loại Bất Động Sản
+                    </label>
+                    <select
+                        className="form-control"
+                        name="home_type"
+                        value={home_type}
+                        onChange={onChange}
+                    >
+                        <option>Tất cả</option>
+                        <option>Căn Hộ Chung Cư</option>
+                        <option>Nhà Mặt Phố</option>
+                        <option>Nhà Đất Thổ Cư</option>
+                        <option>Nhà Biệt Thự, Liền Kề</option>
+                        <option>Nhà Trọ, Phòng Trọ</option>
+                        <option>Nhà Xưởng, Mặt Bằng, Kho Bãi</option>
+                        <option>Đất Trang Trại</option>
+                        <option>Nhà Trong Ngõ</option>
+                        <option>Đất Nông Nghiệp, Đất Vườn</option>
+                        <option>Đất Nền Dự Án</option>
+                        <option>Đất Dịch Vụ, Đền Bù</option>
+                        <option>Văn Phòng, TTTM, Cửa Hàng,Kiot</option>
+                        <option>Nhà Hàng, Khách Sạn, Resort</option>
+                        <option>Condotel</option>
+                        <option>ShopHouse</option>
+                        <option>OfficeTel</option>
+                    </select>
+                </div>
+                <div className="form-group text-center">
+                    {loading ? (
+                        <div className="form-group d-flex justify-content-center px-4 mt-4">
+                            <Loader
+                                type="Oval"
+                                color="#424242"
+                                height={48}
+                                width={48}
+                            />
                         </div>
-                    </div>
-                    <div className="form-group col-md-3">
-                        <label className="listingform__label" htmlFor="area">
-                            Diện Tích
-                        </label>
-                        <select
-                            className="form-control"
-                            name="area"
-                            value={area}
-                            onChange={onChange}
-                        >
-                            <option>Tất cả</option>
-                            <option>Nhỏ hơn 20 m2</option>
-                            <option>20-30 m2</option>
-                            <option>30-50 m2</option>
-                            <option>50-70 m2</option>
-                            <option>70-100 m2</option>
-                            <option>100-150 m2</option>
-                            <option>150-200m2</option>
-                            <option>200-250m2</option>
-                            <option>250-300m2</option>
-                            <option>300-350m2</option>
-                            <option>350-400m2</option>
-                            <option>400-600m2</option>
-                            <option>600-800m2</option>
-                            <option>800-10000m2</option>
-                            <option>Trên 1000m2</option>
-                        </select>
-                    </div>
-                    <div className="form-group col-md-3">
-                        <label className="listingform__label" htmlFor="price">
-                            Giá
-                        </label>
-                        <select
-                            className="form-control"
-                            name="price"
-                            value={price}
-                            onChange={onChange}
-                        >
-                            {priceOptions[sale_type].map((option, index) => (
-                                <option key={index}>{option}</option>
-                            ))}
-                        </select>
-                    </div>
-                    <div className="form-group col-md-3  text-center">
-                        {loading ? (
-                            <div className="form-group d-flex justify-content-center px-4 mt-4">
-                                <Loader
-                                    type="Oval"
-                                    color="#424242"
-                                    height={48}
-                                    width={48}
-                                />
-                            </div>
-                        ) : (
-                            <button className="btn btn-primary py-2 px-3 " style={{marginTop:30}} type="submit">
-                                Search
-                            </button>
-                        )}
-                    </div>
+                    ) : (
+                        <button className="btn btn-primary py-2 px-3 mt-4" type="submit">
+                            Search
+                        </button>
+                    )}
                 </div>
-                <div className="form-row">
-                    <div className="form-group col-md-3">
-                        <label className="listingform__label" htmlFor="province">
-                            Tỉnh/Thành
-                        </label>
-                        <select
-                            className="form-control"
-                            name="province"
-                            value={province}
-                            onChange={onChange}
-                        >
-                            {provinces.map((prov, index) => (
-                                <option key={index}>{prov}</option>
-                            ))}
-                        </select>
-                    </div>
-                    <div className="form-group col-md-3">
-                        <label className="listingform__label" htmlFor="district">
-                            Quận/Huyện
-                        </label>
-                        <select
-                            className="form-control"
-                            name="district"
-                            value={district}
-                            onChange={onChange}
-                        >
-                            {districts.map((dist, index) => (
-                                <option key={index}>{dist}</option>
-                            ))}
-                        </select>
-                    </div>
-                    <div className="form-group col-md-3">
-                        <label className="listingform__label" htmlFor="home_type">
-                            Loại Bất Động Sản
-                        </label>
-                        <select
-                            className="form-control"
-                            name="home_type"
-                            value={home_type}
-                            onChange={onChange}
-                        >
-                            <option>Tất cả</option>
-                            <option>Căn Hộ Chung Cư</option>
-                            <option>Nhà Mặt Phố</option>
-                            <option>Nhà Đất Thổ Cư</option>
-                            <option>Nhà Biệt Thự, Liền Kề</option>
-                            <option>Nhà Trọ, Phòng Trọ</option>
-                            <option>Nhà Xưởng, Mặt Bằng, Kho Bãi</option>
-                            <option>Đất Trang Trại</option>
-                            <option>Nhà Trong Ngõ</option>
-                            <option>Đất Nông Nghiệp, Đất Vườn</option>
-                            <option>Đất Nền Dự Án</option>
-                            <option>Đất Dịch Vụ, Đền Bù</option>
-                            <option>Văn Phòng, TTTM, Cửa Hàng,Kiot</option>
-                            <option>Nhà Hàng, Khách Sạn, Resort</option>
-                            <option>Condotel</option>
-                            <option>ShopHouse</option>
-                            <option>OfficeTel</option>
-                        </select>
-                    </div>
-                </div>
-                
             </form>
             <hr />
         </div>
+
     );
 };
 

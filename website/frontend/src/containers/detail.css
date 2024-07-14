@@ -1,17 +1,20 @@
 .detail-property {
-    /* border-bottom: 1px solid silver; */
     display: flex;
     flex-direction: column;
     text-align: center;
 }
 .detail-property span {
-    /* opacity: 0.6; */
     font-weight: bold;
 }
 
 .detail-property h1{
   font-size: 32px;
 }
+
+.detail_contain {
+  margin-left: 20px;
+}
+
 .detail-image img {
   width: 100%; /* Giới hạn chiều rộng tối đa của ảnh là 100% của phần tử cha */
   max-height: 400px; /* Giới hạn chiều cao tối đa của ảnh là 400px */
@@ -32,7 +35,6 @@
     flex: 1; /* Phần tử con sẽ chiếm hết không gian có sẵn trong flex container */
     text-align: center; /* Căn giữa nội dung trong từng khung */
     padding: 10px; /* Để tăng khoảng cách xung quanh nội dung */
-     /* Đường viền để phân biệt rõ ràng */
   }
   .custom-heading {
     font-size: 28px; /* Đây là ví dụ về kích thước font size */
@@ -86,7 +88,6 @@
     border: 2px solid #000; /* Viền đậm cho toàn bảng */
     border-bottom: 1px solid #ddd; /* Viền dưới cho từng ô */
     min-height: 50px;
-    /* align-items: center; */
     justify-content: space-between;
 }
 
@@ -121,35 +122,4 @@
 }
 
 
-  /* .detail-char {
-    border-bottom: 1px solid silver;
-    display: flex;
-    text-align: center;
-    flex-direction: column;
-  }
-
-  .detail-char h2 {
-    text-align: center;
-  }
-
-  .detail-char .detail-full-des {
-    display: flex;
-  }
   
-  .detail-full-des {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .detail-field {
-    flex: 0 1 calc(50% - 10px);
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    box-sizing: border-box; 
-  }
-
-  .detail-field span {
-    display: block;
-  } */

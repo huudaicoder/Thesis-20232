@@ -1,9 +1,9 @@
 from django.http import JsonResponse
 from .models import BDS, Address, Image, TypeOfBDS
 from django.db.models import Count
-from django.db.models import Q
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import get_object_or_404
+from django.db.models import Avg
 
 def get_all_properties(request):
     properties = BDS.objects.all()
@@ -40,36 +40,39 @@ def get_all_properties(request):
 
 
 def get_property(request, pk):
-    try:
-        prop = BDS.objects.get(BDS_id=pk)
+    # Lấy thông tin bất động sản từ bảng BDS
+    prop = BDS.objects.get(BDS_id=pk)
 
-        type = TypeOfBDS.objects.get(Type_Id=prop.Type_id)
-        typeBDS = type.TypeName
+    # Lấy loại bất động sản từ bảng TypeOfBDS
+    type = TypeOfBDS.objects.get(Type_Id=prop.Type_id)
+    typeBDS = type.TypeName
         
-        image = Image.objects.filter(BDS_id=pk).first()
+    # Lấy địa chỉ từ bảng Address
+    address = Address.objects.get(address_id=prop.address_id)
         
-        prop_data = {
-            'id': prop.BDS_id,
-            'title': prop.title,
-            'price': str(prop.price),
-            'area': str(prop.area),
-            'address':prop.location,
-            'bedroom': prop.bedroom,
-            'toilet': prop.toilet,
-            'floor': prop.floor,
-            'direction': prop.direction,
-            'kind': prop.kind,
-            'law': prop.law,
-            'direction': prop.direction,
-            'description': prop.description,
-            'width': str(prop.width) if prop.width is not None else None,
-            'geocode': prop.geocode,
-            'type': typeBDS,
-            'image_link': image.content if image else None
-        }
-        return JsonResponse(prop_data)
-    except BDS.DoesNotExist:
-        return JsonResponse({'error': 'Không tìm thấy bất động sản'}, status=404)
+    # Lấy ảnh đầu tiên từ bảng Image
+    image = Image.objects.filter(BDS_id=pk).first()
+        
+    prop_data = {
+        'id': prop.BDS_id,
+        'title': prop.title,
+        'price': str(prop.price),
+        'area': str(prop.area),
+        'address': prop.location,
+        'bedroom': prop.bedroom,
+        'toilet': prop.toilet,
+        'floor': prop.floor,
+        'direction': prop.direction,
+        'kind': prop.kind,
+        'law': prop.law,
+        'description': prop.description,
+        'width': str(prop.width) if prop.width is not None else None,
+        'geocode': prop.geocode,
+        'type': typeBDS,
+        'province_city': address.province_city,
+        'image_link': image.content if image else None
+    }        
+    return JsonResponse(prop_data)    
 
 
 def get_properties_by_type(request):
@@ -122,6 +125,7 @@ def get_properties_with_conditions(request):
     max_price = request.GET.get('max_price')
     property_type = request.GET.get('type')  # Lấy giá trị tham số type từ query params
     kind = request.GET.get('kind')
+    print(property_type)
 
     properties = BDS.objects.all()
 
@@ -240,3 +244,70 @@ def search_properties_by_kind(request):
         data.append(prop_data)
 
     return JsonResponse(data, safe=False)
+
+
+def average_price_per_sqm(request):
+    province_city = request.GET.get('province_city')
+    kind = request.GET.get('kind')
+    types = request.GET.getlist('type')
+
+    type_ids = TypeOfBDS.objects.filter(TypeName__in=types).values_list('Type_Id', flat=True)
+
+    address_ids = Address.objects.filter(province_city=province_city).values_list('address_id', flat=True)
+
+    bds_queryset = BDS.objects.filter(kind=kind, Type_id__in=type_ids, address_id__in=address_ids)
+
+    average_prices = bds_queryset.values('address_id').annotate(
+        avg_price_per_sqm=Avg('price') / Avg('area')
+    )
+
+    result = []
+    for entry in average_prices:
+        address = Address.objects.get(address_id=entry['address_id'])
+        avg_price_per_sqm = entry['avg_price_per_sqm']        
+        if kind == 'Mua Bán':
+            avg_price_per_sqm *= 1000
+        
+        avg_price_per_sqm = round(avg_price_per_sqm, 2)
+        
+        result.append({
+            'district': address.district,
+            'avg_price_per_sqm': avg_price_per_sqm
+        })
+
+    return JsonResponse(result, safe=False)
+
+def property_count(request):
+    province_city = request.GET.get('province_city', None)
+    kind = request.GET.get('kind', None)
+    types = request.GET.getlist('type')
+
+    if not (province_city and kind and types):
+        return JsonResponse({'error': 'Missing parameters'}, status=400)
+
+    try:
+        type_ids = TypeOfBDS.objects.filter(TypeName__in=types).values_list('Type_Id', flat=True)
+
+        addresses = Address.objects.filter(province_city=province_city).values('address_id', 'district')
+
+        address_map = {address['address_id']: address['district'] for address in addresses}
+
+        bds_queryset = BDS.objects.filter(kind=kind, Type_id__in=type_ids, address_id__in=list(address_map.keys()))
+
+        district_counts = bds_queryset.values('address_id').annotate(property_count=Count('BDS_id'))
+
+        results = []
+        for entry in district_counts:
+            address_id = entry['address_id']
+            property_count = entry['property_count']
+            district = address_map.get(address_id, None)
+            if district is not None:
+                results.append({
+                    'district': district,
+                    'property_count': property_count
+                })
+
+        return JsonResponse(results, safe=False)
+
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=500)

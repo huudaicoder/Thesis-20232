@@ -7,7 +7,9 @@ from pools.views import (
   get_districts_by_province,
   get_all_districts,
   get_properties_by_type,
-  get_properties_with_conditions
+  get_properties_with_conditions,
+  average_price_per_sqm,
+  property_count
 )
 
 app_name = "pools"
@@ -21,4 +23,6 @@ urlpatterns = [
   path('districts/', get_all_districts, name='get-all-districts'),
   path('properties-by-type/', get_properties_by_type, name='properties_by_type'),
   path('address/<str:province_city>/', get_districts_by_province, name='get-districts-by-province'),
+  path('average_price_per_sqm/', average_price_per_sqm, name='average_price_per_sqm'),
+  path('count/', property_count, name='property_count'),
 ]

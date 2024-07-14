@@ -2,26 +2,47 @@ import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet';
-import { fetchProperties } from '../store/actions/data';
+import axios from 'axios';
 import './detail.css';
-import Map from '../components/Map'; // Đường dẫn tới component Map
+import Map from '../components/Map';
+import CountBarChart from '../components/CountBarChart';
+import AvgBarChart from '../components/AvgBarChart';
 
 const Detail = () => {
     const dispatch = useDispatch();
     const { id } = useParams();
-    const { loading, properties, error } = useSelector((state) => state.property);
+    const [property, setProperty] = React.useState(null);
+    const [loading, setLoading] = React.useState(true);
+    const [error, setError] = React.useState(null);
 
     useEffect(() => {
-        dispatch(fetchProperties());
-    }, [dispatch]);
+        const fetchProperty = async () => {
+            try {
+                setLoading(true);
+                const response = await axios.get(`http://127.0.0.1:8000/pools/property/${id}/`);
+                setProperty(response.data);
+                setLoading(false);
+            } catch (error) {
+                setError(error.message);
+                setLoading(false);
+            }
+        };
 
-    const property = properties.find(p => p.id === parseInt(id));
-    console.log(property)
-    if (!property) {
-        return <div className="container text-center mt-5"></div>;
+        fetchProperty();
+    }, [id]);
+
+    if (loading) {
+        return <div className="container text-center mt-5">Loading...</div>;
     }
 
-    
+    if (error) {
+        return <div className="container text-center mt-5">Error: {error}</div>;
+    }
+
+    if (!property) {
+        return <div className="container text-center mt-5">Property not found</div>;
+    }
+
     const geocode = [{
         lat: parseFloat(property.geocode.split(',')[0].slice(1)),
         lng: parseFloat(property.geocode.split(',')[1].slice(0, -1)),
@@ -33,15 +54,17 @@ const Detail = () => {
         image_link: property.image_link
     }];
 
-    console.log(property.width)
+    const replaceNewLinesWithBr = (text) => {
+        return text.replace(/\r\n/g, "<br>").replace(/\n/g, "<br>");
+    };
 
     return (
         <div className="container-fluid">
             <Helmet>
                 <title>{property.title}</title>
             </Helmet>
-            <div className="row justify-content-center">
-                <div className="col-lg-8">
+            <div className="row justify-content-center detail_contain">
+                <div className="col-lg-7"  >
                     {/* Các phần tử khác của trang chi tiết */}
                     <div className="detail-image text-center mt-4">
                         <img className="card-img-top" src={property.image_link} alt={property.title} />
@@ -66,7 +89,7 @@ const Detail = () => {
                     <div>
                         <div style={{ marginTop: '1.5rem' }}></div>
                         <h2 className='text-center custom-heading'>Thông tin mô tả</h2>
-                        <p>{property.description}</p>
+                        <p dangerouslySetInnerHTML={{ __html: replaceNewLinesWithBr(property.description) }} />
                     </div>
                     <div className="detail-char mt-4">
                         <h2 className='text-center custom-heading'>Đặc điểm bất động sản</h2>
@@ -113,6 +136,19 @@ const Detail = () => {
                 <div className="col-lg-4">
                     <div style={{ marginTop: '1.5rem' }}></div>
                     <Map geocode={geocode} />
+                    <div style={{ marginTop: '2rem' }}></div>
+                    {/* Truyền các tham số từ chi tiết bất động sản vào BarChart */}
+                    <CountBarChart
+                        provinceCity={property.province_city}
+                        kind={property.kind}
+                        type={property.type}
+                    />  
+                    <div style={{ marginTop: '2rem' }}></div>                  
+                    <AvgBarChart
+                        provinceCity={property.province_city}
+                        kind={property.kind}
+                        type={property.type}
+                    />
                 </div>
             </div>
         </div>
