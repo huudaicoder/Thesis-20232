@@ -66,6 +66,7 @@ def get_property(request, pk):
         'kind': prop.kind,
         'law': prop.law,
         'description': prop.description,
+        'phonenumber': prop.phonenumber,
         'width': str(prop.width) if prop.width is not None else None,
         'geocode': prop.geocode,
         'type': typeBDS,

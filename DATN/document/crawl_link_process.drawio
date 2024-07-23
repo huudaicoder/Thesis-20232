@@ -1,0 +1,31 @@
+<mxfile host="app.diagrams.net" modified="2024-06-27T14:45:25.212Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" etag="yP418sP2RUio3oeYd_TN" version="24.6.3" type="device">
+  <diagram name="Trang-1" id="2SiHh1UCvYaYbvnXLx_L">
+    <mxGraphModel dx="794" dy="420" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="SAWS58APasTlB77Myeaj-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="SAWS58APasTlB77Myeaj-1" target="SAWS58APasTlB77Myeaj-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SAWS58APasTlB77Myeaj-1" value="Browse for list-web&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="140" y="111.5" width="120" height="59" as="geometry" />
+        </mxCell>
+        <mxCell id="SAWS58APasTlB77Myeaj-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="SAWS58APasTlB77Myeaj-2" target="SAWS58APasTlB77Myeaj-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SAWS58APasTlB77Myeaj-2" value="get each url" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="320" y="111.5" width="110" height="59" as="geometry" />
+        </mxCell>
+        <mxCell id="SAWS58APasTlB77Myeaj-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="SAWS58APasTlB77Myeaj-3" target="SAWS58APasTlB77Myeaj-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SAWS58APasTlB77Myeaj-3" value="Update full link" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="480" y="111" width="110" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SAWS58APasTlB77Myeaj-4" value="Store exacted link" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="640" y="113.13" width="120" height="55.75" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

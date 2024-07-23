@@ -1,0 +1,67 @@
+<mxfile host="app.diagrams.net" modified="2024-06-29T06:32:57.491Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" etag="WbzzVLUBICNYk4JdmDg8" version="24.6.3" type="device">
+  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
+    <mxGraphModel dx="794" dy="420" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="Wm6mJanHDIBdTCAfnQ12-20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Wm6mJanHDIBdTCAfnQ12-2" target="Wm6mJanHDIBdTCAfnQ12-13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Wm6mJanHDIBdTCAfnQ12-2" value="Normalization&lt;div&gt;width, area&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="680" y="341" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Wm6mJanHDIBdTCAfnQ12-16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Wm6mJanHDIBdTCAfnQ12-3" target="Wm6mJanHDIBdTCAfnQ12-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Wm6mJanHDIBdTCAfnQ12-3" value="Crawl detail data of each estate" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="220" y="201" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Wm6mJanHDIBdTCAfnQ12-15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Wm6mJanHDIBdTCAfnQ12-4" target="Wm6mJanHDIBdTCAfnQ12-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Wm6mJanHDIBdTCAfnQ12-4" value="Crawl link each estate page" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="60" y="201" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Wm6mJanHDIBdTCAfnQ12-17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Wm6mJanHDIBdTCAfnQ12-5" target="Wm6mJanHDIBdTCAfnQ12-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Wm6mJanHDIBdTCAfnQ12-5" value="Save In JSON file" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="380" y="201" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Wm6mJanHDIBdTCAfnQ12-6" value="Data Storage" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="60" y="341" width="100" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Wm6mJanHDIBdTCAfnQ12-23" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Wm6mJanHDIBdTCAfnQ12-8" target="Wm6mJanHDIBdTCAfnQ12-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Wm6mJanHDIBdTCAfnQ12-8" value="Coordinating Address" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="200" y="341" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Wm6mJanHDIBdTCAfnQ12-22" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Wm6mJanHDIBdTCAfnQ12-11" target="Wm6mJanHDIBdTCAfnQ12-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Wm6mJanHDIBdTCAfnQ12-11" value="Normalization Address" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="360" y="341" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Wm6mJanHDIBdTCAfnQ12-18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Wm6mJanHDIBdTCAfnQ12-12" target="Wm6mJanHDIBdTCAfnQ12-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Wm6mJanHDIBdTCAfnQ12-12" value="Normalization Price" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="520" y="201" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Wm6mJanHDIBdTCAfnQ12-21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Wm6mJanHDIBdTCAfnQ12-13" target="Wm6mJanHDIBdTCAfnQ12-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Wm6mJanHDIBdTCAfnQ12-13" value="Normalization Type of estate" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="520" y="341" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Wm6mJanHDIBdTCAfnQ12-19" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Wm6mJanHDIBdTCAfnQ12-14" target="Wm6mJanHDIBdTCAfnQ12-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Wm6mJanHDIBdTCAfnQ12-14" value="Normalization&lt;div&gt;bedroom, toilet&amp;nbsp;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="680" y="201" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

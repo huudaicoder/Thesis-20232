@@ -27,10 +27,6 @@ const AllProperty = () => {
         return <div>Loading...</div>;
     }
 
-    const Changetitle = (string) => {
-        return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
-    };
-
     const formatAddress = (address) => {
         const parts = address.split(", ");
         if (parts.length >= 2) {
@@ -50,7 +46,7 @@ const AllProperty = () => {
                             <img className="card-img-top" src={listing.image_link} alt="" />
                             <div className="card-body">
                                 <Link to={`/listing/${listing.id}`} className="card-title">
-                                    <h5>{Changetitle(listing.title.toLowerCase())}</h5>
+                                    <h5>{listing.title}</h5>
                                 </Link>
                                 <p className="card-text">{formatAddress(listing.address)}</p>
                             </div>

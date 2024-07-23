@@ -1,0 +1,41 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 100vw; /* Full width */
+    height: 75vh; /* Full height of the viewport */
+    margin: 0; /* Remove any default margin */
+    padding: 0; /* Remove any default padding */
+}
+
+.List-card {
+    float: left; /* Float to the left */
+    width: 25%; /* 1/4 of the width */
+    height: 96%; /* Full height */
+    overflow-y: auto; /* Enable scrolling if content overflows */
+    box-sizing: border-box; /* Include padding in height calculation */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove any margin */
+}
+
+.map {
+    float: left; /* Float to the left */
+    width: 75%; /* 3/4 of the width */
+    height: 110%; /* Full height */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove any margin */
+    max-height: 100vh; /* Max height to match viewport height */
+    padding-left: 2vh;
+}
+
+.card-img-top {
+    height: 140px; /* Adjust the height as needed */
+    object-fit: cover;
+}
+
+.card {
+    margin-bottom: 5px;
+}

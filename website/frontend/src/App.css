@@ -11,18 +11,6 @@ body {
 }
 
 /* Heading */
-.brand-heading {
-    font-size: 3.2rem;
-    font-weight: 900;
-    letter-spacing: 2px;
-    background-image: linear-gradient(90deg, #88ff00, #ff0048);
-    background-size: 100%;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    background-clip: none;
-    -webkit-text-fill-color: transparent;
-    -moz-text-fill-color: transparent;
-}
 
 @media (max-width: 1200px) {
     .brand-heading {

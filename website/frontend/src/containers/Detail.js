@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
 import { Helmet } from 'react-helmet';
 import axios from 'axios';
 import './detail.css';
@@ -9,11 +8,10 @@ import CountBarChart from '../components/CountBarChart';
 import AvgBarChart from '../components/AvgBarChart';
 
 const Detail = () => {
-    const dispatch = useDispatch();
     const { id } = useParams();
-    const [property, setProperty] = React.useState(null);
-    const [loading, setLoading] = React.useState(true);
-    const [error, setError] = React.useState(null);
+    const [property, setProperty] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchProperty = async () => {
@@ -55,7 +53,7 @@ const Detail = () => {
     }];
 
     const replaceNewLinesWithBr = (text) => {
-        return text.replace(/\r\n/g, "<br>").replace(/\n/g, "<br>");
+        return text.replace(/\?/g, "").replace(/\r\n/g, "<br>").replace(/\n/g, "<br>");
     };
 
     return (
@@ -76,14 +74,16 @@ const Detail = () => {
                         <div style={{ flex: '3', textAlign: 'left', paddingLeft: '0px' }}>
                             <span className="text-muted">Địa chỉ: {property.address}</span>
                             <span className="text-muted">Loại bất động sản: {property.type}</span>
+                            <span className="text-muted">Số điện thoại: {property.phonenumber}</span>
                         </div>
                         <div style={{ flex: '1.2', textAlign: 'left' }}>
-                            <span className="text-muted">Diện tích: {property.area} m2</span>
+                            <span className="text-muted">Diện tích: {property.area} m²</span>
                             <span className="text-muted">
-                                Mức giá: {property.price == 0.00 ? 'Thỏa thuận' : (
+                                Mức giá: {property.price === 0.00 ? 'Thỏa thuận' : (
                                     property.kind === 'Mua Bán' ? `${property.price} tỷ` : `${property.price} triệu/tháng`
                                 )}
-                            </span>
+                            </span>                           
+                            
                         </div>
                     </div>
                     <div>
@@ -102,7 +102,7 @@ const Detail = () => {
                             </div>
                             <div className="detail-field">
                                 <span className="label">Hướng:</span>
-                                {property.direction != 'null' && (
+                                {property.direction !== 'null' && (
                                     <span className="value">{property.direction}</span>
                                 )}
                             </div>
@@ -114,7 +114,7 @@ const Detail = () => {
                             </div>
                             <div className="detail-field">
                                 <span className="label">Pháp lý:</span>
-                                {property.law != 'null' && (
+                                {property.law !== 'null' && (
                                     <span className="value">{property.law}</span>
                                 )}
                             </div>

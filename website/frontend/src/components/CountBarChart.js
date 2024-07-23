@@ -27,7 +27,7 @@ const CountBarChart = ({ provinceCity, kind, type }) => {
                         type: 'column'
                     },
                     title: {
-                        text: `Số lượng bất động sản cùng loại tại các quận/huyện${provinceCity}`
+                        text: `Số lượng bất động sản cùng loại tại các quận/huyện ${provinceCity}`
                     },
                     xAxis: {
                         categories: categories,

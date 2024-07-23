@@ -1,0 +1,69 @@
+scope này nhìn k thấy nó là scope mà nó nhìn giống định hướng, 
+thế nào nhở, đâu đó nó có thể gọi là hướng giải quyết cho các feature ở trên
+nó là scope k hẳn là scope, scope bạn phải trình bày cái này k nằm trong phạm vi
+đồ án của tôi tôi k giải quyết, cái này nằm trong phạm vi của tôi, thường thì mục
+đích scope là để nói những cái k nằm trong phạm vi,những cái nhập nhằng ở trên cái
+k nằm trong phạm vi đồ án của tôi, còn thì cái nằm trong phạm vi thì nó đã nằm
+trong mục đích rồi đúng k, nhung cái mục đích ấy có thể có những cái trường hợp,
+những cái tình huống mà nó cụ thể tôi không đề cập đến thì khi ấy cái phần scope
+là tôi để tường minh là để loại trừ nó ra thì cái phần này k giống scope mà nó
+mang tính là solution nhiều hơn, cân nhắc hoặc nếu để thì ghép vs phần sau, sẽ
+thấy phần sau và phần đấy cũng na ná nhau thfi đọc nếu muốn để thì bạn nên ghép
+với phần sau, tuy là ghép nhưng cũng phải chỉnh sửa lại chứ không phải bê nguyên
+từ trên xuống, còn scope ở đây bạn muốn làm j cái gì mình k giải quyết đừng có hỏi
+tôi thfi cần phải nêu cái đó.
+Phần duôi organization thì bỏ cái đuôi đi chỉ để chương 1,2,3,4,5 làm gì thôi.
+
+Overall problem: solution, 
+Chương 2: Problem analysis, cái requiment analysis(2.1) bạn nói thì mình thấy k
+khác j cái function phải viết yêu cầu chức năng của nó là gì, câu hỏi nếu 
+requirement thì nó xuất phát từ đâu, từ người dùng, từ một nhu cầu thay đổi thói
+quen hay là gì, - nó đang lặp lại trong chương 1
+ thiếu 1 sơ đồ kiến trức tổng thể của toàn bộ những gì bạn đã xây dựng- điển hình
+việc sử dụng chatgpt cho đồ án kỹ thuật, k có lấy 1 hình vẽ kiến trúc hệ thống
+
+=> Chương 2:System overview: 2.1 Challenge: 2.1.1 Intergration and collection,
+2.1.2 visualization challenge  2.2 System overall architecture- nêu các chức năng
+tổng thể của hệ thống sau đó thì banj sẽ thấy là tôi có collec, integration, storage,
+visualization; 2.2 overview cả hệ thống trong đó break thành 2 thành phần:collec,
+ integration và analysis,visualization data; 2.2 sẽ bám theo các component để đi 
+giải thích các component
+
+chương 3: Data Collection Integration
+3.1 Technology
+3.2 lấy dữ liệu về phân tích tron gnhuwngx dữ liệu đã lấy về để xem nên giữ các 
+trường nào, xem xem nên lấy được gì tù đấy và tổng hợp nó thể nào , mindset là hệ
+thống là process phải chỉ ra process crawl về và xủ lý dữ liệu như nào, dữ liệu
+đấy crawl về detect ra có những conflic nào => việc tích hợp như thế nào ở đây cái
+trong phần nomalization,... xử lý dữ liệu về đang nặng kiểu kể lể mô tả, structure
+lại. 3.2 bạn gọi là process mà k có bất kì process nào đc trình bày cả- bổ sung tiến
+trìn khu thu thập về, crawl data về, phần tích dữ liêu, detect các cái conflic thế
+nào, làm sao để tìm ra các cái conflic để chuyển đổi dữ iệu - process. nghi nghờ trình
+bày quá chi tiết so với kiến trúc toognr thể cuối chương 2. 3.2 Thu thập dữ liệu
+3.3 tích hợp dữ liệu, lưu trữ giữ liệucần chỉnh sửa ví dụ thu thập thì phải trình bày
+là tôi thu từ các nguồn này, cái quan tọng là phân tích đặc trưng các nguồn này, có
+nguồn nào dùng html tĩnh hoặc động, nguồn nào phân trang, có nguồn nào là scolar =>
+xủ loys dữ iệu khác nhau, thay vì trìn bày các nguồn này tôi làm thê snayf thì bạn
+phân tích các nguồn các feature đấy của các nguồn, với các nguồn sử dụng sconda,
+phân trang thì tôi phải làm như nào để duyệt các trang, cái nào generrate cái nào
+k có api k chia các nguồn theo feature để trình bày thu thập dữ liệu theo đặc trưng
+các nguồn như thế. phần tích hợp cũng thế phải nói đc cách tôi mô hình hóa việc dữ
+liệu conflic thế nào, về cái j VD: gía tiền,diện tích, địa chỉ, bedtoilet,....;
+chuẩn hóa phần làm sạch dữ liệu phải làm rõ ra ví dụ diện tích,... dictrict, city,
+phải trình bày rõ ra - đấy là 1 oạt các uật để làm sạch và chuẩn hóa dữ liệu.
+- storage thì đưa lược đồ dữ liệu ở trên vào
+chương 4: data analysis and visualization
+k có 1 cái hình visualiztion nào; 
+4.1 technology, 4.2 process mà k có 1 process nào đc tình bày ở đây, k biết bạn 
+muốn trình bày j dưới dạng process,- đặ ra câu hỏi là e có các kiểu visualization
+như thế nào, bản chất của visualization là hiển thị kết quả phân tích, bao nhiêu
+cái yêu cầu là bao nhiêu cái đồ thị, dưới dạng; trong các yêu cầu phân tích đấy
+có the các nhóm các kiểu ntn theo các thuộc tính tỏng bảng dữ liệu: vd tôi tìm xem
+là bất động sản ở khu vực nào đó, diện tích nào đó, khu vự nào đó, có các kiểu
+visualization gì: search theo các thuộc tính, biểu diễn trên map;  cho search theo
+giá, diện tích,... vao phần chương 4: search và visualizatinon
+
+phần chương 3 phải thêm các hình vẽ kiến trúc mang tính kĩ thuật một chút nhìn thấy,
+đc thành phần của tôi như nào
+
+

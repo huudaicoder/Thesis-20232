@@ -15,8 +15,8 @@ const MapList = ({ geocode }) => {
     const history = useHistory();
 
     useEffect(() => {
-        const heatData = geocode.map(item => [item.lat, item.lng, 0.5]);
-        const initialCoordinates = heatData.length > 0 ? heatData[0].slice(0, 2) : [10.7769, 106.7009];
+        const heatData = geocode.map(item => [item.lat, item.lng, 0.3]);
+        const initialCoordinates = heatData.length > 0 ? heatData[0].slice(0, 2) : [21.0285, 105.8542];
         const map = L.map(mapRef.current).setView(initialCoordinates, 14);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -59,9 +59,9 @@ const MapList = ({ geocode }) => {
             maxZoom: 10,
             max: 1.5,
             gradient: {
-                0.0: 'green',
-                0.5: 'yellow',
-                1.0: 'red'
+                0.3: 'green',
+                0.6: 'yellow',
+                0.9: 'red'
             }
         });
 

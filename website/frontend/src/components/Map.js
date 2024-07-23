@@ -18,7 +18,7 @@ const customIcon = L.icon({
 
 const Map = ({ geocode }) => {
     // Default position (if no geocode data)
-    const defaultCenter = { lat: 51.505, lng: -0.09 };
+    const defaultCenter = { lat: 21.0285, lng: 105.8542 };
 
     return (
         <MapContainer center={geocode.length > 0 ? [geocode[0].lat, geocode[0].lng] : defaultCenter} zoom={13} style={{ height: '400px', width: '100%' }}>

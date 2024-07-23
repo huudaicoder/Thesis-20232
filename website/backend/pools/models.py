@@ -20,6 +20,7 @@ class BDS(models.Model):
     address_id = models.IntegerField()
     Type_id = models.IntegerField()     
     description = models.TextField()
+    phonenumber = models.CharField(max_length=20)
     width = models.DecimalField(max_digits=10, decimal_places=2)
     direction = models.CharField(max_length=20)
     toilet = models.IntegerField()
